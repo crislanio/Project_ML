@@ -1,0 +1,7 @@
+
+cython
+numpy
+fbprophet
+flask
+pandas
+scikit-learn
