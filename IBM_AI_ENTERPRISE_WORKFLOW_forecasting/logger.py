@@ -44,8 +44,10 @@ def update_predict_log(y_pred,runtime,MODEL_VERSION,MODEL_VERSION_NOTE,test):
     ## name the logfile using something that cycles with date (day, month, year)    
     today = date.today()
     if test:
+        print('logs ... done')
         logfile = os.path.join("logs","predict-test.log")
     else:
+        print('logs ... done', today.year, today.month)
         logfile = os.path.join("logs","predict-{}-{}.log".format(today.year, today.month))
         
     ## write the data to a csv file    
@@ -72,8 +74,8 @@ if __name__ == "__main__":
     
     ## train logger
     update_train_log("100","00:00:01",
-                     MODEL_VERSION, MODEL_VERSION_NOTE, test)
+                     MODEL_VERSION, MODEL_VERSION_NOTE, test=False)
     ## predict logger
-    update_predict_log("100","00:00:01",MODEL_VERSION, MODEL_VERSION_NOTE, test)
+    update_predict_log("100","00:00:01",MODEL_VERSION, MODEL_VERSION_NOTE, test=False)
     
         

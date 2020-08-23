@@ -1,3 +1,4 @@
+#!/usr/bin/python           
 """ 
 In this file, the functions for training and predicting with Prophet are defined.
 """
@@ -39,6 +40,25 @@ def model_train():
 
     return True
 
+def model_predict_country(country):
+    time_start = time.time()
+    data_dir = os.path.join("data","cs_train","data")
+    ts_data = fetch_ts(data_dir)
+    countries=[]
+    for c,df in ts_data.items():
+        countries.append(c)
+
+    if(country not in countries):
+        text="Could not find country called "+ country+".csv"
+        return(text)
+
+    else:
+        filename="./data/forecasts/forecast_"+country+".csv"
+        forecasts = pd.read_csv(filename)
+        # print('type df',type(forecasts))
+        # return forecasts#.to_json() #file_fc
+        return forecasts [['ds','trend','yhat','yhat_lower','yhat_upper']]
+
 def model_predict(country, year, month, day):
     time_start = time.time()
     data_dir = os.path.join("data","cs_train","data")
@@ -72,6 +92,9 @@ def model_predict(country, year, month, day):
 if __name__ == "__main__":
 
     # model_train()
+
     print(model_predict("netherlands","2020","12","10"))
-    # print(model_predict("spain","2020","12","10"))
-    # print(model_predict("all","2020","10","09"))
+    print(model_predict("spain","2018","10","05"))    
+    print(model_predict("all","2018","01","01"))          # show forecast row for a country and date
+
+    # print(model_predict_country("spain"))  # show forecast data for a country

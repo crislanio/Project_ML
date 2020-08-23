@@ -142,7 +142,7 @@ def model_predict(country,year,month,day,all_models=None,test=False):
     """
     example funtion to predict from model
     """
-
+    print("here ",country,year,month,day)
     ## start timer for runtime
     time_start = time.time()
 
@@ -212,9 +212,19 @@ if __name__ == "__main__":
     print("... models loaded: ",",".join(all_models.keys()))
 
     ## test predict
-    country='all'
+    # country='all'
+    # year='2018'
+    # month='01'
+    # day='05'
+    # result = model_predict(country,year,month,day)
+
+    # ## test predict
+    country='spain'
     year='2018'
-    month='01'
-    day='05'
+    month='10'
+    day='01'
     result = model_predict(country,year,month,day)
+
     print(result)
+
+
