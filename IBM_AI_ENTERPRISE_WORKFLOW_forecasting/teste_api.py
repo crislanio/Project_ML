@@ -53,19 +53,41 @@ def test_API_predict_all(request_json_all):
     # print('type ',type(response))
     return response #"test forecast country"
 
+def test_API_country_list(request_json):
+    ## ping the API
+    port = 8080    
+    r = requests.post('http://localhost:{}/countrylist'.format(port),json=request_json)
+    response = r.text
+    return response
+
+def test_API_tuningmodel(request_json_all):
+    ## ping the API
+    port = 8080    
+    r = requests.post('http://localhost:{}/tuningmodel'.format(port),json=request_json_all)
+    response = r.text
+    return response #"test forecast country"
 
 
 if __name__ == "__main__":
     request_json = {'country':'netherlands','year':'2019','month':'01','day':'05'}
 
-    # request_json_datetime = {"begin" : 1558915200000, "end": 1590447600000 }
-    request_json_datetime = {"begin" : "1990-01", "end": "2100-01" }
+    request_json_datetime = {"country":"spain","begin" : "1990-01", "end": "2100-01" }
     request_json_all = {'country':'spain'}
 
     # ### endpoint running
-    # print("test API - endpoint running")
+    ## print("test API - endpoint running")
     # res_running = test_API_running()
     # print(res_running)
+
+    ### endpoint country list
+    ## print("test API - endpoint test_API_country_list")
+    _country_l = test_API_country_list( request_json_all )
+    print( _country_l )
+
+    ### endpoint tuning model
+    ## print("test API - endpoint test_API_tuningmodel")
+    # _country_tuningmd = test_API_tuningmodel( request_json_all )
+    # print( _country_tuningmd )
 
     ### endpoint predict_all_datetime
     # print("test API - endpoint predict_all_datetime")
@@ -74,12 +96,12 @@ if __name__ == "__main__":
 
 
     # ### endpoint predict
-    # print("test API - endpoint predict")
-    # res_predict = test_API_predict(request_json)
-    # print(res_predict)
+    ## print("test API - endpoint predict")
+    res_predict = test_API_predict(request_json)
+    print(res_predict)
 
     ### endpoint predict_all
-    # print("test API - endpoint predict_all")
+    ## print("test API - endpoint predict_all")
     # predict_all = test_API_predict_all(request_json_all)
     # print(predict_all)
 

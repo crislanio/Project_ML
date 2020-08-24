@@ -6,8 +6,14 @@ This project contains
 * Unit tests for API, logging, and model
 * run_tests.py for running all tests with a single script
 * monitoring.py for performance monitoring
+* teste_api.py validate endpoints API
 * Baseline.ipynb for baseline model 
 * EDA_data.ipynb for data analysis
+* Model_Validation.ipynb model tuning
+* dashboards_AVAAIL_POC.pbix Power BI - dashboard POC power BI with demand revenue forecast
+* dashboard_poc.py Dash - dashboard  POC with demand revenue forecast
+
+* export_postgresql.ipynb  example for export data for postgresql
 
 * Docker deployment
 

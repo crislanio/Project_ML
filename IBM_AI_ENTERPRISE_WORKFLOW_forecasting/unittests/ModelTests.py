@@ -30,10 +30,10 @@ class ModelTest(unittest.TestCase):
 
     def test_predict_country(self):
         """
-        test the predict function inputk with unallowed country
+        test the predict function input with unallowed country
         """
     
-        result = model_predict("finland","2020","10","11")
+        result = model_predict("finland","2020","09","11")
         self.assertEqual(result,"Could not find country called finland")
 
     def test_predict_date(self):
@@ -41,7 +41,7 @@ class ModelTest(unittest.TestCase):
         Test the predict function input with unallowed date
         """
     
-        result = model_predict("all","2222","10","10")
+        result = model_predict("all","2010","09","10")
         self.assertEqual(result,"Date not available")
 
 ### Run the tests

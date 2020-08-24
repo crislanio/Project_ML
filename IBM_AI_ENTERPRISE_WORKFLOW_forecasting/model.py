@@ -106,7 +106,6 @@ def model_train(data_dir,test=False):
         
         #if test and country not in ['all','united_kingdom']:
         #    continue
-        
         _model_train(df,country,test=test)
     
 def model_load(prefix='test',data_dir=None,training=True):
